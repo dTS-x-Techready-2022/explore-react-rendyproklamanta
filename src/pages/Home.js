@@ -8,8 +8,8 @@ import { Divider } from "@mui/material";
 
 const HomePage = () => {
 
-   const [countdown, setCountdown] = useState('00:00')
-   const [jokes, setJokes] = useState('Jokes goes here...')
+   const [countdown, setCountdown] = useState('01:00')
+   const [jokes, setJokes] = useState('')
 
    useEffect(() => {
       const minutesToAdd = 1;
@@ -33,7 +33,7 @@ const HomePage = () => {
          })
             .then(res => {
                const data = res.data;
-               console.log(data);
+               // console.log(data);
                setJokes(data)
             })
             .catch(error => {
@@ -56,7 +56,7 @@ const HomePage = () => {
             <br />
             <Divider />
             <p>
-               "{jokes}"
+               "{jokes.value ? jokes.value : jokes}"
             </p>
          </Container>
       </>
